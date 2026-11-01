@@ -1,108 +1,244 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<title>STENACHI BRAT</title>
-<style>
-*{box-sizing:border-box}
-body{
- margin:0;padding:22px 16px;
- background:#101018;color:white;
- font-family:Arial,sans-serif;
-}
-header{text-align:center;padding:22px 10px}
-.logo{font-size:48px}
-h1{color:#c18aff;margin:10px 0}
-.sub{color:#999}
-.card{
- background:#1d1d2b;border:1px solid #39334c;
- border-radius:17px;padding:18px;margin:14px 0;
-}
-.title{font-size:19px;font-weight:bold;margin-bottom:15px}
-.stats{display:flex;gap:10px}
-.stat{flex:1;text-align:center}
-.number{font-size:24px;color:#d1a1ff;font-weight:bold}
-.small{font-size:12px;color:#aaa;margin-top:7px}
-.user{
- display:flex;align-items:center;
- padding:13px 0;border-bottom:1px solid #343343;
- gap:12px;
-}
-.rank{font-size:20px;width:30px}
-.name{flex:1;font-weight:bold}
-.coins{color:#e7bd57;font-size:14px}
-button{
- width:100%;padding:15px;border:0;
- border-radius:13px;background:#7438b5;
- color:white;font-size:16px;font-weight:bold;
- margin-top:12px;
-}
-footer{text-align:center;color:#777;font-size:12px;padding:20px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STENACHI BRAT</title>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 25px 18px;
+      background: #090b13;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 450px;
+      margin: auto;
+    }
+
+    .header {
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #b56aff;
+    }
+
+    .subtitle {
+      margin-top: 9px;
+      color: #9995aa;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #191629, #11121e);
+      border: 1px solid #39304f;
+      border-radius: 18px;
+      padding: 23px;
+      margin-bottom: 17px;
+    }
+
+    .section-title {
+      color: #bda1ff;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .balance {
+      text-align: center;
+    }
+
+    .coin {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .amount {
+      font-size: 43px;
+      font-weight: bold;
+      color: #c18aff;
+    }
+
+    .description {
+      color: #aaa6b8;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .currency {
+      display: inline-block;
+      margin-top: 13px;
+      padding: 7px 18px;
+      border-radius: 20px;
+      background: #302345;
+      color: #d2a8ff;
+      font-weight: bold;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 17px 5px;
+      background: #201b31;
+      border-radius: 13px;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #c18aff;
+    }
+
+    .stat-label {
+      margin-top: 7px;
+      font-size: 12px;
+      color: #aaa6b8;
+    }
+
+    .top-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5px;
+      border-bottom: 1px solid #302a40;
+      color: #ddd8e8;
+    }
+
+    .top-list:last-child {
+      border-bottom: none;
+    }
+
+    .rank {
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .top-balance {
+      color: #bda1ff;
+      font-weight: bold;
+    }
+
+    .back-button {
+      display: block;
+      width: 100%;
+      padding: 17px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #873eea, #b15aff);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer {
+      text-align: center;
+      color: #777386;
+      font-size: 11px;
+      margin-top: 25px;
+    }
+  </style>
 </head>
+
 <body>
-<header>
- <div class="logo">🛡️</div>
- <h1>STENACHI BRAT</h1>
- <div class="sub">WALL UPGRADER COMMUNITY</div>
-</header>
+  <div class="container">
 
-<div class="card">
- <div class="title">💎 WALLCOIN</div>
- <div class="stats">
-  <div class="stat">
-   <div class="number" id="balance">0</div>
-   <div class="small">Sizning balansingiz</div>
+    <header class="header">
+      <div class="logo">STENACHI BRAT</div>
+      <div class="subtitle">WALL UPGRADER COMMUNITY</div>
+    </header>
+
+    <section class="card balance">
+      <div class="section-title">💎 WALLCOIN</div>
+      <div class="coin">💎</div>
+      <div class="amount" id="balance">0</div>
+      <div class="description">Sizning balansingiz</div>
+      <div class="currency">WC</div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">📊 STATISTIKA</div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number" id="users">0</div>
+          <div class="stat-label">Foydalanuvchilar</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number" id="orders">0</div>
+          <div class="stat-label">Buyurtmalar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">🏆 TOP FOYDALANUVCHILAR</div>
+
+      <div class="top-list">
+        <span class="rank">🥇 TOP 1</span>
+        <span class="top-balance">— WC</span>
+      </div>
+
+      <div class="top-list">
+        <span class="rank">🥈 TOP 2</span>
+        <span class="top-balance">— WC</span>
+      </div>
+
+      <div class="top-list">
+        <span class="rank">🥉 TOP 3</span>
+        <span class="top-balance">— WC</span>
+      </div>
+    </section>
+
+    <button class="back-button" onclick="backToBot()">
+      ↩ BOTGA QAYTISH
+    </button>
+
+    <div class="footer">
+      STENACHI BRAT © 2026
+    </div>
+
   </div>
-  <div class="stat">
-   <div class="number">WC</div>
-   <div class="small">Valyuta</div>
-  </div>
- </div>
-</div>
 
-<div class="card">
- <div class="title">📊 STATISTIKA</div>
- <div class="stats">
-  <div class="stat">
-   <div class="number">0</div>
-   <div class="small">Foydalanuvchilar</div>
-  </div>
-  <div class="stat">
-   <div class="number">0</div>
-   <div class="small">Buyurtmalar</div>
-  </div>
- </div>
-</div>
+  <script>
+    const tg = window.Telegram.WebApp;
 
-<div class="card">
- <div class="title">🏆 TOP FOYDALANUVCHILAR</div>
- <div class="user">
-  <div class="rank">🥇</div>
-  <div class="name">TOP 1</div>
-  <div class="coins">— WC</div>
- </div>
- <div class="user">
-  <div class="rank">🥈</div>
-  <div class="name">TOP 2</div>
-  <div class="coins">— WC</div>
- </div>
- <div class="user">
-  <div class="rank">🥉</div>
-  <div class="name">TOP 3</div>
-  <div class="coins">— WC</div>
- </div>
-</div>
+    tg.ready();
+    tg.expand();
 
-<button onclick="Telegram.WebApp.close()">BOTGA QAYTISH</button>
-<footer>STENACHI BRAT © 2026</footer>
+    function backToBot() {
+      const botUrl = "https://t.me/STENACHI_BOT";
 
-<script>
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
-</script>
+      if (window.Telegram && window.Telegram.WebApp) {
+        tg.openTelegramLink(botUrl);
+      } else {
+        window.location.href = botUrl;
+      }
+    }
+  </script>
 </body>
 </html>
