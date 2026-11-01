@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<title>STENACHI BRAT</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:22px 16px;
+ background:#101018;color:white;
+ font-family:Arial,sans-serif;
+}
+header{text-align:center;padding:22px 10px}
+.logo{font-size:48px}
+h1{color:#c18aff;margin:10px 0}
+.sub{color:#999}
+.card{
+ background:#1d1d2b;border:1px solid #39334c;
+ border-radius:17px;padding:18px;margin:14px 0;
+}
+.title{font-size:19px;font-weight:bold;margin-bottom:15px}
+.stats{display:flex;gap:10px}
+.stat{flex:1;text-align:center}
+.number{font-size:24px;color:#d1a1ff;font-weight:bold}
+.small{font-size:12px;color:#aaa;margin-top:7px}
+.user{
+ display:flex;align-items:center;
+ padding:13px 0;border-bottom:1px solid #343343;
+ gap:12px;
+}
+.rank{font-size:20px;width:30px}
+.name{flex:1;font-weight:bold}
+.coins{color:#e7bd57;font-size:14px}
+button{
+ width:100%;padding:15px;border:0;
+ border-radius:13px;background:#7438b5;
+ color:white;font-size:16px;font-weight:bold;
+ margin-top:12px;
+}
+footer{text-align:center;color:#777;font-size:12px;padding:20px}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">🛡️</div>
+ <h1>STENACHI BRAT</h1>
+ <div class="sub">WALL UPGRADER COMMUNITY</div>
+</header>
+
+<div class="card">
+ <div class="title">💎 WALLCOIN</div>
+ <div class="stats">
+  <div class="stat">
+   <div class="number" id="balance">0</div>
+   <div class="small">Sizning balansingiz</div>
+  </div>
+  <div class="stat">
+   <div class="number">WC</div>
+   <div class="small">Valyuta</div>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <div class="title">📊 STATISTIKA</div>
+ <div class="stats">
+  <div class="stat">
+   <div class="number">0</div>
+   <div class="small">Foydalanuvchilar</div>
+  </div>
+  <div class="stat">
+   <div class="number">0</div>
+   <div class="small">Buyurtmalar</div>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <div class="title">🏆 TOP FOYDALANUVCHILAR</div>
+ <div class="user">
+  <div class="rank">🥇</div>
+  <div class="name">TOP 1</div>
+  <div class="coins">— WC</div>
+ </div>
+ <div class="user">
+  <div class="rank">🥈</div>
+  <div class="name">TOP 2</div>
+  <div class="coins">— WC</div>
+ </div>
+ <div class="user">
+  <div class="rank">🥉</div>
+  <div class="name">TOP 3</div>
+  <div class="coins">— WC</div>
+ </div>
+</div>
+
+<button onclick="Telegram.WebApp.close()">BOTGA QAYTISH</button>
+<footer>STENACHI BRAT © 2026</footer>
+
+<script>
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
+</script>
+</body>
+</html>
