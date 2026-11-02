@@ -1,244 +1,148 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STENACHI BRAT</title>
-
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      padding: 25px 18px;
-      background: #090b13;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      max-width: 450px;
-      margin: auto;
-    }
-
-    .header {
-      text-align: center;
-      padding: 25px 10px;
-    }
-
-    .logo {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: #b56aff;
-    }
-
-    .subtitle {
-      margin-top: 9px;
-      color: #9995aa;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #191629, #11121e);
-      border: 1px solid #39304f;
-      border-radius: 18px;
-      padding: 23px;
-      margin-bottom: 17px;
-    }
-
-    .section-title {
-      color: #bda1ff;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 18px;
-    }
-
-    .balance {
-      text-align: center;
-    }
-
-    .coin {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    .amount {
-      font-size: 43px;
-      font-weight: bold;
-      color: #c18aff;
-    }
-
-    .description {
-      color: #aaa6b8;
-      margin-top: 8px;
-      font-size: 14px;
-    }
-
-    .currency {
-      display: inline-block;
-      margin-top: 13px;
-      padding: 7px 18px;
-      border-radius: 20px;
-      background: #302345;
-      color: #d2a8ff;
-      font-weight: bold;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .stat {
-      text-align: center;
-      padding: 17px 5px;
-      background: #201b31;
-      border-radius: 13px;
-    }
-
-    .stat-number {
-      font-size: 28px;
-      font-weight: bold;
-      color: #c18aff;
-    }
-
-    .stat-label {
-      margin-top: 7px;
-      font-size: 12px;
-      color: #aaa6b8;
-    }
-
-    .top-list {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 5px;
-      border-bottom: 1px solid #302a40;
-      color: #ddd8e8;
-    }
-
-    .top-list:last-child {
-      border-bottom: none;
-    }
-
-    .rank {
-      font-weight: bold;
-      font-size: 17px;
-    }
-
-    .top-balance {
-      color: #bda1ff;
-      font-weight: bold;
-    }
-
-    .back-button {
-      display: block;
-      width: 100%;
-      padding: 17px;
-      margin-top: 22px;
-      border: none;
-      border-radius: 14px;
-      background: linear-gradient(90deg, #873eea, #b15aff);
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .footer {
-      text-align: center;
-      color: #777386;
-      font-size: 11px;
-      margin-top: 25px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<title>STENACHI BRAT</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#100e18;color:white;
+ font-family:Arial,sans-serif;padding-bottom:100px
+}
+header{text-align:center;padding:25px 15px 15px}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px;color:#f2ca69}
+.sub{font-size:10px;color:#aaa;letter-spacing:3px;margin-top:7px}
+main{padding:12px 16px;max-width:520px;margin:auto}
+.page{display:none}
+.page.active{display:block}
+.card{
+ background:linear-gradient(135deg,#28213d,#191626);
+ border:1px solid #40334f;border-radius:18px;
+ padding:20px;margin-bottom:15px
+}
+.wallet{text-align:center;padding:27px 15px}
+.wallet-label{color:#d6b75e;font-size:13px;font-weight:bold}
+.balance{font-size:42px;font-weight:900;color:#f5d77e;margin:15px 0}
+.muted{color:#aaa;font-size:12px}
+h2{font-size:19px;margin:10px 0 17px}
+.info{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #393044;font-size:13px}
+.info:last-child{border:0}
+.game{
+ padding:18px;border-radius:16px;margin-bottom:13px;
+ background:#211c30;border:1px solid #40334f
+}
+.game-icon{font-size:32px}
+.game h3{margin:10px 0 5px}
+.game p{font-size:12px;color:#aaa}
+.tag{color:#e6c36d;font-size:11px}
+.stat-number{font-size:30px;color:#f2d078;font-weight:bold;margin:10px 0}
+nav{
+ position:fixed;bottom:0;left:0;right:0;
+ background:#191522;border-top:1px solid #393044;
+ display:flex;justify-content:space-around;
+ padding:12px 5px calc(12px + env(safe-area-inset-bottom));
+ z-index:5
+}
+nav button{
+ background:none;border:0;color:#999;
+ font-size:11px;display:flex;flex-direction:column;
+ align-items:center;gap:5px;flex:1
+}
+nav button span{font-size:22px}
+nav button.active{color:#f2cf76}
+button{cursor:pointer}
+</style>
 </head>
-
 <body>
-  <div class="container">
+<header>
+ <div class="logo">STENACHI BRAT</div>
+ <div class="sub">WALL UPGRADER COMMUNITY</div>
+</header>
 
-    <header class="header">
-      <div class="logo">STENACHI BRAT</div>
-      <div class="subtitle">WALL UPGRADER COMMUNITY</div>
-    </header>
+<main>
+<section id="profile" class="page active">
+ <div class="card wallet">
+  <div class="wallet-label">💎 MY WALLCOIN</div>
+  <div class="balance" id="balance">0 WC</div>
+  <div class="muted">SIZNING BALANSINGIZ</div>
+ </div>
+ <h2>👤 MY PROFILE</h2>
+ <div class="card">
+  <div class="info"><span>Ism</span><b id="username">Foydalanuvchi</b></div>
+  <div class="info"><span>Telegram ID</span><b id="userid">—</b></div>
+  <div class="info"><span>Valyuta</span><b>WALLCOIN (WC)</b></div>
+ </div>
+</section>
 
-    <section class="card balance">
-      <div class="section-title">💎 WALLCOIN</div>
-      <div class="coin">💎</div>
-      <div class="amount" id="balance">0</div>
-      <div class="description">Sizning balansingiz</div>
-      <div class="currency">WC</div>
-    </section>
+<section id="games" class="page">
+ <h2>🎮 O‘YINLAR</h2>
+ <div class="game">
+  <div class="game-icon">🏰</div>
+  <h3>WALL BUILDER</h3>
+  <p>O‘z qal’angni qur va devorlaringni rivojlantir.</p>
+  <div class="tag">TEZ KUNDA</div>
+ </div>
+ <div class="game">
+  <div class="game-icon">⚔️</div>
+  <h3>KNIGHT ARENA</h3>
+  <p>Ritsarlar bilan qiziqarli o‘yin.</p>
+  <div class="tag">TEZ KUNDA</div>
+ </div>
+ <div class="game">
+  <div class="game-icon">🛡️</div>
+  <h3>CASTLE DEFENSE</h3>
+  <p>Qal’angni himoya qil!</p>
+  <div class="tag">TEZ KUNDA</div>
+ </div>
+</section>
 
-    <section class="card">
-      <div class="section-title">📊 STATISTIKA</div>
+<section id="stats" class="page">
+ <h2>📊 STATISTIKA</h2>
+ <div class="card">
+  <div class="muted">👥 BOT FOYDALANUVCHILARI</div>
+  <div class="stat-number" id="users">—</div>
+  <div class="muted">Jami foydalanuvchilar</div>
+ </div>
+ <div class="card">
+  <div class="muted">📦 JAMI BUYURTMALAR</div>
+  <div class="stat-number" id="orders">—</div>
+  <div class="muted">Barcha buyurtmalar</div>
+ </div>
+</section>
+</main>
 
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-number" id="users">0</div>
-          <div class="stat-label">Foydalanuvchilar</div>
-        </div>
+<nav>
+ <button class="active" onclick="showPage('profile',this)">
+  <span>👤</span>PROFIL
+ </button>
+ <button onclick="showPage('games',this)">
+  <span>🎮</span>O‘YINLAR
+ </button>
+ <button onclick="showPage('stats',this)">
+  <span>📊</span>STATISTIKA
+ </button>
+</nav>
 
-        <div class="stat">
-          <div class="stat-number" id="orders">0</div>
-          <div class="stat-label">Buyurtmalar</div>
-        </div>
-      </div>
-    </section>
+<script>
+const tg=window.Telegram.WebApp;
+tg.ready();
+tg.expand();
 
-    <section class="card">
-      <div class="section-title">🏆 TOP FOYDALANUVCHILAR</div>
+const user=tg.initDataUnsafe?.user;
+if(user){
+ document.getElementById('username').textContent=
+ user.first_name || 'Foydalanuvchi';
+ document.getElementById('userid').textContent=user.id;
+}
 
-      <div class="top-list">
-        <span class="rank">🥇 TOP 1</span>
-        <span class="top-balance">— WC</span>
-      </div>
-
-      <div class="top-list">
-        <span class="rank">🥈 TOP 2</span>
-        <span class="top-balance">— WC</span>
-      </div>
-
-      <div class="top-list">
-        <span class="rank">🥉 TOP 3</span>
-        <span class="top-balance">— WC</span>
-      </div>
-    </section>
-
-    <button class="back-button" onclick="backToBot()">
-      ↩ BOTGA QAYTISH
-    </button>
-
-    <div class="footer">
-      STENACHI BRAT © 2026
-    </div>
-
-  </div>
-
-  <script>
-    const tg = window.Telegram.WebApp;
-
-    tg.ready();
-    tg.expand();
-
-    function backToBot() {
-      const botUrl = "https://t.me/STENACHI_BOT";
-
-      if (window.Telegram && window.Telegram.WebApp) {
-        tg.openTelegramLink(botUrl);
-      } else {
-        window.location.href = botUrl;
-      }
-    }
-  </script>
+function showPage(id,button){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ button.classList.add('active');
+}
+</script>
 </body>
 </html>
